@@ -6,12 +6,16 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      squares: [0, 0, 0, 0, 5, 0, 0, 0, 0]
+      squares: ["", "", "", "", "", "", "", "", ""],
+      mark: ["❌"]
+     
     }
   }
 
-handleChange = (index) => {
-  
+ticTac = (index) => {
+  const {squares, mark} = this.state
+  squares[index] = mark
+  this.setState({squares: squares})
 }
   render(){
     return(
@@ -24,7 +28,7 @@ handleChange = (index) => {
               <Square
                 index = {index}
                 value = {value}
-                handleChange = {this.handleChange}
+                ticTac = {this.ticTac}
               />
             )
           })}
